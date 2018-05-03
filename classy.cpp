@@ -24,12 +24,8 @@ vector<string> tokenizer(string chain) {
     return tokens;
 }
 
-int sort_class(t_class c1, t_class c2) {
-    if (c1 > c2)
-        return 1;
-    if (c1 < c2)
-        return -1;
-    return 0;
+bool sort_class(t_class c1, t_class c2) {
+    return (c1 > c2);
 }
 
 t_class string_to_t_class(string s) {
@@ -45,11 +41,12 @@ bool sort_pairs(pair<string,string> p1, pair<string,string> p2) {
     vector<string> t2 = tokenizer(p2.second);
     reverse(t1.begin(),t1.end());
     reverse(t2.begin(),t2.end());
+    while (t1.size()<t2.size()) t1.push_back("middle");
+    while (t2.size()<t1.size()) t2.push_back("middle");
+
     int i=0;
     while (i<t1.size() && i<t2.size()) {
-        int res = sort_class(string_to_t_class(t1[i]),string_to_t_class(t2[i]));
-        if (res == 1) return true;
-        if (res == -1) return false;
+        if (t1[i] != t2[i]) return  sort_class(string_to_t_class(t1[i]),string_to_t_class(t2[i]));
         ++i;
     }
     return p1.first.compare(p2.first) < 0;

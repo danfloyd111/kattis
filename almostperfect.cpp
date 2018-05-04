@@ -11,8 +11,8 @@ int main() {
     while (cin >> n) {
         proper_divs.clear();
         proper_divs.push_back(1);
-        int s = (int) sqrt(n) + 1;
-        for (int i = 2; i < s; ++i) {
+        int s = (int) sqrt(n);
+        for (int i = 2; i <= s; ++i) {
             if (n % i == 0) {
                 int num = n / i;
                 if (i != num)

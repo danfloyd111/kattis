@@ -5,8 +5,8 @@
 
 function isPerfect(n) {
     let properDivs = [1];
-    let s = Math.floor(Math.sqrt(n)) + 1;
-    for (let i = 2; i<s; ++i) {
+    let s = Math.floor(Math.sqrt(n));
+    for (let i = 2; i<=s; ++i) {
         if (n%i === 0) {
             let q = n / i;
             if (q != i) {

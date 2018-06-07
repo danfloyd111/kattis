@@ -1,16 +1,27 @@
 import sys
 
-n_entries = int(sys.stdin.readline())
+while True:
 
-while n_entries != 0:
-    
+    n_curr = int(sys.stdin.readline())
+    if n_curr == 0:
+        break
+
+    curr_list = sys.stdin.readline().split()
+    n_entries = int(sys.stdin.readline())
+    exchange_list = []
+
     while n_entries:
-        
+
         line = sys.stdin.readline()
         curr1, curr2, change = line.split()
         units1, units2 = change.split(':')
-        print(curr1,curr2,units1,units2)
-
+        exchange_list.append({ curr1: int(units1), curr2: int(units2) })
         n_entries -= 1
-    
-    n_entries = int(sys.stdin.readline())
+
+    for curr in curr_list:
+
+        
+
+
+    print("currency list",curr_list)
+    print("exchange list",exchange_list)

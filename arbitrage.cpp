@@ -5,6 +5,8 @@
 
 using namespace std;
 
+// Returns the index of string `s` if is contained into `ls` which have a size of `size`
+// Returns -1 if `s` is not contained into `ls`
 int index_of(string s, string ls[], size_t size) {
     for (size_t i = 0; i < size; ++i) {
         if (s.compare(ls[i]) == 0) {
@@ -25,7 +27,7 @@ int main() {
          for (int i=0; i<c; ++i) {
              cin >> currencies[i];
              for (int j=0; j<c; ++j) {
-                 matrix[i][j] = (i==j) ? 1.0 : 0.0;
+                 matrix[i][j] = (i==j) ? 1.0 : 0.0; // setting default values on the diagonal
              }
          }
 

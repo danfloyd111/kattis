@@ -48,53 +48,60 @@ int main() {
         }
 
         notes.push_back('.');
-
     }
 
     notes.pop_back();
 
     for (char c : notes) {
         for (pair<char,string> entry : chart) {
-            switch (entry.first) {
-                // whitespace
-                case 'G':
-                case 'E':
-                case 'C':
-                case 'A':
-                case 'f':
-                case 'd':
-                case 'c':
-                case 'b': {
-                    string s = entry.second + " ";
-                    entry.second = s;
-                    break;
-                }
-                // dash
-                case 'e':
-                case 'g':
-                case 'B':
-                case 'D':
-                case 'F':
-                // valid for 'a'
-                default: {
-                    string s = entry.second + "-";
-                    entry.second = s;
+            if (c == entry.first) {
+                chart[c] += "*";
+            } else {
+                switch (entry.first) {
+                    // whitespace
+                    case 'G':
+                    case 'E':
+                    case 'C':
+                    case 'A':
+                    case 'f':
+                    case 'd':
+                    case 'c':
+                    case 'b': {
+                        chart[entry.first] += " ";
+                        break;
+                    }
+                    // dash
+                    case 'e':
+                    case 'g':
+                    case 'B':
+                    case 'D':
+                    case 'F':
+                    // valid for 'a'
+                    default: {
+                        chart[entry.first] += "-";
+                    }
                 }
             }
         }
-        if (c != '.') {
-            string s = chart[c];
-            s[s.size()-1] = '*';
-            chart[c] = s;
-        }
     }
 
-    for (pair<char,string> entry : chart) {
-        cout << entry.first << ":" << entry.second << "\n";
-    }
 
-//    for (char c : notes) { cout << c << endl; } // DEBUG
+    // we have to display the chart in a particular order
+    cout << "G: " << chart['G'] << "\n";
+    cout << "F: " << chart['F'] << "\n";
+    cout << "E: " << chart['E'] << "\n";
+    cout << "D: " << chart['D'] << "\n";
+    cout << "C: " << chart['C'] << "\n";
+    cout << "B: " << chart['B'] << "\n";
+    cout << "A: " << chart['A'] << "\n";
+    cout << "g: " << chart['g'] << "\n";
+    cout << "f: " << chart['f'] << "\n";
+    cout << "e: " << chart['e'] << "\n";
+    cout << "d: " << chart['d'] << "\n";
+    cout << "c: " << chart['c'] << "\n";
+    cout << "b: " << chart['b'] << "\n";
+    cout << "a: " << chart['a'] << "\n";
 
-    return 0;
+    return EXIT_SUCCESS;
 
 }

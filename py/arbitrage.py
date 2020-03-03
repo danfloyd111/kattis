@@ -13,7 +13,7 @@ while True:
     for i in range(n_curr):
         matrix.append([])
         for j in range(n_curr):
-            if (i==j):
+            if (i == j):
                 matrix[i].append(1)
             else:
                 matrix[i].append(0)
@@ -44,6 +44,6 @@ while True:
             break
 
     if arbitrage:
-        print ("Arbitrage")
+        print("Arbitrage")
     else:
         print("Ok")

@@ -1,8 +1,10 @@
 import sys
 from math import factorial
 
+
 def binomial(n, k):
-    return factorial(n) / (factorial(n - k) * factorial(k)) 
+    return factorial(n) / (factorial(n - k) * factorial(k))
+
 
 n = int(sys.stdin.readline())
 result = 0

@@ -5,7 +5,7 @@ cases = int(sys.stdin.readline())
 for i in range(cases):
 
     categories = int(sys.stdin.readline())
-    store = { }
+    store = {}
 
     for j in range(categories):
 
